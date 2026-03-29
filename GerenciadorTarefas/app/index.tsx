@@ -22,8 +22,7 @@ interface Tarefa {
 export default function Index() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
-  const [tarefaEditando, setTarefaEditando] =
-    useState<Tarefa | null>(null);
+  const [tarefaEditando, setTarefaEditando] = useState<Tarefa | null>(null);
 
   function salvarTarefa(tarefa: Tarefa) {
     setTarefas((prev) => {

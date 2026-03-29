@@ -30,6 +30,7 @@ const TarefaModal: React.FC<TarefaModalProps> = ({
   const [descricao, setDescricao] = useState("");
   const [prioridade, setPrioridade] = useState("1");
   const [prazo, setPrazo] = useState("");
+  const [ano, mes, dia] = prazo.split("-").map(Number);
 
   useEffect(() => {
     if (tarefaEditando) {
@@ -52,7 +53,7 @@ const TarefaModal: React.FC<TarefaModalProps> = ({
       id: tarefaEditando?.id ?? Math.random().toString(),
       descricao,
       prioridade: Number(prioridade),
-      prazo: new Date(prazo),
+      prazo: new Date(ano, mes - 1, dia),
     };
 
     onSave(tarefa);
